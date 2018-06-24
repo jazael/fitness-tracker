@@ -9,20 +9,21 @@
         <input
           type="email"
           matInput
-          placeholder="Your email"
+          placeholder="Digite su correo electrónico"
           formControlName="email">
-        <mat-hint>Please enter a valid email.</mat-hint>
-        <mat-error>Invalid or missing email.</mat-error>
+        <mat-hint>Por favor ingresa un correo válido.</mat-hint>
+        <mat-error>Correo electrónico inválido o faltante.</mat-error>
       </mat-form-field>
       <mat-form-field>
         <input
           type="password"
           matInput
-          placeholder="Your password"
+          placeholder="Digita tu contraseña"
           formControlName="password">
-        <mat-hint>Please enter your password.</mat-hint>
-        <mat-error>Missing password.</mat-error>
+        <mat-hint>Por favor, introduzca su contraseña.</mat-hint>
+        <mat-error>Falta la contraseña.</mat-error>
       </mat-form-field>
-      <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Submit</button>
+      <button *ngIf="!isLoading" type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Inicio de Sesión</button>
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
     </form>
   </section>
